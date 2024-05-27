@@ -1,23 +1,33 @@
 import * as Yup from "yup";
 
+export const preSignInSchema = Yup.object({
+    userName: Yup.string()
+        .required("Поле обязательное!")
+        .max(20, "максимальная длина - 20 символов!"),
+    password: Yup.string()
+        .required("Поле обязательное!")
+        .min(3, "Пароль - минимум 3 символа!")
+        .max(20, "Maximum length - 20 characters!"),
+});
+
 export const signInSchema = Yup.object({
     userName: Yup.string()
-        .required("Field required!")
-        .max(20, "Maximum length - 20 characters"),
+        .required("Поле обязательное!")
+        .max(20, "максимальная длина - 20 символов!"),
     password: Yup.string()
-        .required("Field required!")
-        .min(3, "Password - minimum 3 characters")
-        .max(20, "Maximum length - 20 characters"),
+        .required("Поле обязательное!")
+        .min(3, "Пароль - минимум 3 символа!")
+        .max(20, "максимальная длина - 20 символов!"),
 });
 
 export const signUpSchema = Yup.object({
     userName: Yup.string()
-        .required("Field required!")
-        .max(20, "Maximum length - 20 characters"),
+        .required("Поле обязательное!")
+        .max(20, "максимальная длина - 20 символов!"),
     password: Yup.string()
-        .required("Field required!")
-        .min(3, "Password - minimum 3 characters")
-        .max(20, "Maximum length - 20 characters"),
+        .required("Поле обязательное!")
+        .min(3, "Пароль - минимум 3 символа!")
+        .max(20, "максимальная длина - 20 символов!"),
     /* role: Yup.number()
         .required("Field required!")
         .typeError("Значение должно быть числом!")

@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import TheHeader from '../src/components/TheHeader/TheHeader';
 import Home from '../src/pages/Home/Home';
 import Card from '../src/pages/Card/Card';
+import PreSignUp from './pages/PreSignUp/PreSignUp';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 //import axios from "axios";
@@ -12,6 +13,7 @@ import SignIn from './pages/SignIn/SignIn';
 function App() {
 
     const paths = {
+        preSignUp: "presign-up",
         sigUp: "/sign-up",
         signIn: "/sign-in",
         home: "/",
@@ -19,6 +21,7 @@ function App() {
     };
 
     const routes = [
+        { path: paths.preSignUp, element: <PreSignUp /> },
         { path: paths.sigUp, element: <SignUp /> },
         { path: paths.signIn, element: <SignIn /> },
         { path: paths.home, element: <Home /> },

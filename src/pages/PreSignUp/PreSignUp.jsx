@@ -1,55 +1,55 @@
 import { useForm } from 'react-hook-form';
 import Button from '../../components/Button/Button';
-import styles from './signIn.module.scss';
+import styles from './preSignUp.module.scss';
 import Field from '../../components/Field/Field';
 import { yupResolver } from "@hookform/resolvers/yup"; 
-import { signInSchema } from "../../validatorSchemas/validationSchema";
+import { preSignInSchema } from "../../validatorSchemas/validationSchema";
 
 
 const defaultValues = {
-    userName: "",
-    password: "",
+    phone: "",
+    email: "",
 };
 
-const SignIn = () => {
+const SignUp = () => {
     
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm({defaultValues,
-        resolver: yupResolver(signInSchema)
+        resolver: yupResolver(preSignInSchema)
     });
 
 
-    const handleSignIn = async (data) => {
+    const handleRegistration = async (data) => {
         console.log(data);
     };
 
     return (
         <>
-            <h1 className={styles.titleText}>Вход</h1>
-            <form className={styles.form} onSubmit={handleSubmit(handleSignIn)}>
-                <h2 className={styles.lable+' '+styles.positionEmail}>Пользователь</h2>
+            <h1 className={styles.titleText}>Предрегистрация</h1>
+            <form className={styles.form} onSubmit={handleSubmit(handleRegistration)}>
+                <h2 className={styles.lable+' '+styles.positionEmail}>Телефон</h2>
                 <Field 
-                    register={{...register("userName")}}
+                    register={{...register("phone")}}
                     autoComplete="off"
-                    placeholder="пользователь..."
+                    placeholder="телефон..."
                     className={styles.input}
                     />
                 {Boolean(errors.userName) && <p className={styles.error}>{errors.userName?.message}</p>}
-                <h2 className={styles.lable}>Пароль</h2>
+                <h2 className={styles.lable}>Почта</h2>
                 <Field 
-                    register={{...register("password")}}
+                    register={{...register("email")}}
                     autoComplete="off"
-                    placeholder="пароль..."
+                    placeholder="почта..."
                     className={styles.input}
                     />
                 {Boolean(errors.password) && <p className={styles.error}>{errors.password?.message}</p>}
-                <Button className={styles.button} name={'Вход'} type="submit"/>
+                <Button className={styles.button} name={'Предрегистрация'} type="submit"/>
             </form>
         </>
     )
 };
 
-export default SignIn;
+export default SignUp;

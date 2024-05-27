@@ -30,19 +30,19 @@ const SignUp = () => {
         <>
             <h1 className={styles.titleText}>Регистрация</h1>
             <form className={styles.form} onSubmit={handleSubmit(handleRegistration)}>
-                <h2 className={styles.lable+' '+styles.positionEmail}>Username</h2>
+                <h2 className={styles.lable+' '+styles.positionEmail}>Пользователь</h2>
                 <Field 
                     register={{...register("userName")}}
                     autoComplete="off"
-                    placeholder="username..."
+                    placeholder="пользователь..."
                     className={styles.input}
                     />
                 {Boolean(errors.userName) && <p className={styles.error}>{errors.userName?.message}</p>}
-                <h2 className={styles.lable}>Password</h2>
+                <h2 className={styles.lable}>Пароль</h2>
                 <Field 
                     register={{...register("password")}}
                     autoComplete="off"
-                    placeholder="password..."
+                    placeholder="пароль..."
                     className={styles.input}
                     />
                 {Boolean(errors.password) && <p className={styles.error}>{errors.password?.message}</p>}
