@@ -30,7 +30,7 @@ const SignIn = () => {
         <>
             <h1 className={styles.titleText}>Вход</h1>
             <form className={styles.form} onSubmit={handleSubmit(handleSignIn)}>
-                <h2 className={styles.lable+' '+styles.positionEmail}>Пользователь</h2>
+                <h2 className={styles.lable}>Пользователь</h2>
                 <Field 
                     register={{...register("userName")}}
                     autoComplete="off"

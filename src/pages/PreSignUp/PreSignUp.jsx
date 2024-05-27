@@ -30,7 +30,7 @@ const SignUp = () => {
         <>
             <h1 className={styles.titleText}>Предрегистрация</h1>
             <form className={styles.form} onSubmit={handleSubmit(handleRegistration)}>
-                <h2 className={styles.lable+' '+styles.positionEmail}>Телефон</h2>
+                <h2 className={styles.lable}>Телефон</h2>
                 <Field 
                     register={{...register("phone")}}
                     autoComplete="off"
