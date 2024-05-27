@@ -1,4 +1,3 @@
-import './App.css';
 import styles from './app.module.scss';
 import { Routes, Route } from 'react-router-dom';
 import TheHeader from '../src/components/TheHeader/TheHeader';
@@ -27,7 +26,7 @@ function App() {
     ];
 
     return (
-        <div className="App">
+        <div className={styles.app}>
             <TheHeader />
             <main className={styles.main}>
                 <Routes>
