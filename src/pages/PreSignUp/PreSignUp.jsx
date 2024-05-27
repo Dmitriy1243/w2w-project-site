@@ -43,7 +43,7 @@ const SignUp = () => {
                     placeholder="телефон..."
                     className={styles.input}
                     />
-                {Boolean(errors.userName) && <p className={styles.error}>{errors.userName?.message}</p>}
+                {Boolean(errors.phone) && <p className={styles.error}>{errors.phone?.message}</p>}
                 <h2 className={styles.lable}>Почта</h2>
                 <Field 
                     register={{...register("email")}}
@@ -51,7 +51,7 @@ const SignUp = () => {
                     placeholder="почта..."
                     className={styles.input}
                     />
-                {Boolean(errors.password) && <p className={styles.error}>{errors.password?.message}</p>}
+                {Boolean(errors.email) && <p className={styles.error}>{errors.email?.message}</p>}
                 <Button className={styles.button} name={'Предрегистрация'} type="submit"/>
             </form>
             <h2>{`Phone: ${PreloginUser.phone}`}</h2>

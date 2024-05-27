@@ -7,7 +7,7 @@ export const preSignUpSchema = Yup.object({
     email: Yup.string()
         .required("Поле обязательное!")
         .min(3, "Пароль - минимум 3 символа!")
-        .max(20, "Maximum length - 20 characters!"),
+        .max(20, "максимальная длина - 20 символов!"),
 });
 
 export const signInSchema = Yup.object({
