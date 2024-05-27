@@ -1,10 +1,55 @@
+import { useForm } from 'react-hook-form';
+import Button from '../../components/Button/Button';
+import styles from './signUp.module.scss';
+import Field from '../../components/Field/Field';
+import { yupResolver } from "@hookform/resolvers/yup"; 
+import { signUpSchema } from "../../validatorSchemas/validationSchema";
+
+
+const defaultValues = {
+    userName: "",
+    password: "",
+};
+
 const SignUp = () => {
+    
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({defaultValues,
+        resolver: yupResolver(signUpSchema)
+    });
+
+
+    const handleRegistration = async (data) => {
+        console.log(data);
+    };
+
     return (
-        <div>
-            <h1>Регистрация</h1>
-        </div>
+        <>
+            <h1 className={styles.titleText}>Регистрация</h1>
+            <form className={styles.form} onSubmit={handleSubmit(handleRegistration)}>
+                <h2 className={styles.lable+' '+styles.positionEmail}>Username</h2>
+                <Field 
+                    register={{...register("userName")}}
+                    autoComplete="off"
+                    placeholder="username..."
+                    className={styles.input}
+                    />
+                {Boolean(errors.userName) && <p className={styles.error}>{errors.userName?.message}</p>}
+                <h2 className={styles.lable}>Password</h2>
+                <Field 
+                    register={{...register("password")}}
+                    autoComplete="off"
+                    placeholder="password..."
+                    className={styles.input}
+                    />
+                {Boolean(errors.password) && <p className={styles.error}>{errors.password?.message}</p>}
+                <Button className={styles.button} name={'Регистрация'} type="submit"/>
+            </form>
+        </>
     )
 };
 
 export default SignUp;
-
