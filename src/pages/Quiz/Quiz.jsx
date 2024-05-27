@@ -11,16 +11,16 @@ const Quiz = () => {
     const [state, setState] = useState(1);
 
     const handlePlus = () => {
-        setState(state + 1)
+        setState(state => state + 1)
         if (state >= 3) {
             setState(1)
         }
     };
 
     const handleMinus = () => {
-        setState(state - 1)
+        setState(state => state - 1)
         if (state <= 1) {
-            setState(3)
+            setState(1)
         }
     };
 
