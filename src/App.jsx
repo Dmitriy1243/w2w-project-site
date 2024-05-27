@@ -9,9 +9,9 @@ import Card from '../src/pages/Card/Card';
 import PreSignUp from './pages/PreSignUp/PreSignUp';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
+import  Quiz from './pages/Quiz/Quiz';
 //import axios from "axios";
-//import { useForm } from 'react-hook-form';
-//import * as Yup from "yup";
+
 
 function App() {
 
@@ -20,7 +20,8 @@ function App() {
         sigUp: "/sign-up",
         signIn: "/sign-in",
         home: "/",
-        card: "/card"
+        card: "/card",
+        quiz: "/quiz"
     };
 
     const routes = [
@@ -29,6 +30,7 @@ function App() {
         { path: paths.signIn, element: <SignIn /> },
         { path: paths.home, element: <Home /> },
         { path: paths.card, element: <Card /> },
+        { path: paths.quiz, element: <Quiz /> },
     ];
 
     return (
