@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 const TheHeader = () => {
     return (
         <header className={styles.header}>
-            <Link className={styles.textLink} to='/'>HOME</Link>
-            <Link className={styles.textLink} to='/sign-up'>SIGN UP</Link>
-            <Link className={styles.textLink} to='/sign-in'>SIGN IN</Link>
-            <Link className={styles.textLink} to='/card'>CARD</Link>
+            <Link className={styles.textLink} to='/'>Главная</Link>
+            <Link className={styles.textLink} to='/sign-up'>Регистрация</Link>
+            <Link className={styles.textLink} to='/sign-in'>Вход</Link>
+            <Link className={styles.textLink} to='/card'>Карточка</Link>
         </header>
     )
 };
