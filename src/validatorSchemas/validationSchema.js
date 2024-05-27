@@ -1,10 +1,10 @@
 import * as Yup from "yup";
 
-export const preSignInSchema = Yup.object({
-    userName: Yup.string()
+export const preSignUpSchema = Yup.object({
+    phone: Yup.string()
         .required("Поле обязательное!")
         .max(20, "максимальная длина - 20 символов!"),
-    password: Yup.string()
+    email: Yup.string()
         .required("Поле обязательное!")
         .min(3, "Пароль - минимум 3 символа!")
         .max(20, "Maximum length - 20 characters!"),

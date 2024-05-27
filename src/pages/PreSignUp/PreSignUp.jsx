@@ -3,7 +3,10 @@ import Button from '../../components/Button/Button';
 import styles from './preSignUp.module.scss';
 import Field from '../../components/Field/Field';
 import { yupResolver } from "@hookform/resolvers/yup"; 
-import { preSignInSchema } from "../../validatorSchemas/validationSchema";
+import { preSignUpSchema } from "../../validatorSchemas/validationSchema";
+import { useSelector, useDispatch } from 'react-redux';
+import { selectPreLoginUser } from '../../redux/selectors/selectors';
+import { loginReducer } from '../../redux/slices/preAuthSlice';
 
 
 const defaultValues = {
@@ -12,18 +15,21 @@ const defaultValues = {
 };
 
 const SignUp = () => {
+
+    const dispatch = useDispatch();
+    const PreloginUser = useSelector(selectPreLoginUser);
     
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm({defaultValues,
-        resolver: yupResolver(preSignInSchema)
+        resolver: yupResolver(preSignUpSchema)
     });
 
 
     const handleRegistration = async (data) => {
-        console.log(data);
+        dispatch(loginReducer(data))
     };
 
     return (
@@ -48,6 +54,8 @@ const SignUp = () => {
                 {Boolean(errors.password) && <p className={styles.error}>{errors.password?.message}</p>}
                 <Button className={styles.button} name={'Предрегистрация'} type="submit"/>
             </form>
+            <h2>{`Phone: ${PreloginUser.phone}`}</h2>
+            <h2>{`Email: ${PreloginUser.email}`}</h2>
         </>
     )
 };

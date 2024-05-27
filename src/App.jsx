@@ -1,5 +1,8 @@
 import styles from './app.module.scss';
 import { Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/es/integration/react';
+import { store, persistor } from '../src/redux/store/store';
 import TheHeader from '../src/components/TheHeader/TheHeader';
 import Home from '../src/pages/Home/Home';
 import Card from '../src/pages/Card/Card';
@@ -30,12 +33,16 @@ function App() {
 
     return (
         <div className={styles.app}>
-            <TheHeader />
-            <main className={styles.main}>
-                <Routes>
-                    {routes.map((route, index) => (<Route key={index} path={route.path} element={route.element} />))}
-                </Routes>
-            </main>
+            <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+                    <TheHeader />
+                    <main className={styles.main}>
+                        <Routes>
+                            {routes.map((route, index) => (<Route key={index} path={route.path} element={route.element} />))}
+                        </Routes>
+                    </main>
+                </PersistGate>
+            </Provider>
         </div>
     );
 }
