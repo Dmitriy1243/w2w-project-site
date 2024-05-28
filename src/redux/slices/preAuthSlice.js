@@ -1,11 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { PostPreRegistration } from '../../api/postPreRegistration';
+import { postPreRegistration } from '../../api/postPreRegistration';
 
 
 export const initialState = {
     loginUser: {
-        phone: '',  
-        email: ''   
+        username: '',  
+        password: ''   
     }
     /* accessToken: '',
     expire: '',
@@ -24,21 +24,21 @@ export const preAuthSlice = createSlice({
     reducers: {   
     
         loginReducer: (state, action) => {
-            state.loginUser.phone = action.payload.phone;
-            state.loginUser.email = action.payload.email;
+            state.loginUser.username = action.payload.username;
+            state.loginUser.password = action.payload.password;
         },
     },
 
     extraReducers: (builder) => {
         builder
-        .addCase(PostPreRegistration.pending, (state) => {
+        .addCase(postPreRegistration.pending, (state) => {
 
             state.status = "loading";
             state.error = null;
     });
 
         builder
-        .addCase(PostPreRegistration.fulfilled, 
+        .addCase(postPreRegistration.fulfilled, 
             (state, { payload }) => { 
     
             /* state.accessToken = payload.accessToken;
@@ -47,7 +47,7 @@ export const preAuthSlice = createSlice({
     });
 
         builder
-        .addCase(PostPreRegistration.rejected, 
+        .addCase(postPreRegistration.rejected, 
             (state, { payload }) => {
 
             if (payload) state.error = payload.message; //В payload.message приходит из fetchBooks => return thunkApi.rejectWithValue({ message: "Неправильный логин или пароль" })

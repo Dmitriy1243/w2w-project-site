@@ -10,6 +10,7 @@ import PreSignUp from './pages/PreSignUp/PreSignUp';
 import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 import  Quiz from './pages/Quiz/Quiz';
+import Chat from './pages/Chat/Chat';
 //import axios from "axios";
 
 
@@ -21,7 +22,8 @@ function App() {
         signIn: "/sign-in",
         home: "/",
         card: "/card",
-        quiz: "/quiz"
+        quiz: "/quiz",
+        chat: "/websocket"
     };
 
     const routes = [
@@ -31,6 +33,7 @@ function App() {
         { path: paths.home, element: <Home /> },
         { path: paths.card, element: <Card /> },
         { path: paths.quiz, element: <Quiz /> },
+        { path: paths.chat, element: <Chat /> },
     ];
 
     return (

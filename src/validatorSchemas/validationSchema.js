@@ -1,33 +1,35 @@
 import * as Yup from "yup";
 
 export const preSignUpSchema = Yup.object({
-    phone: Yup.string()
+    username: Yup.string()
         .required("Поле обязательное!")
-        .max(20, "максимальная длина - 20 символов!"),
-    email: Yup.string()
-        .required("Поле обязательное!")
-        .min(3, "Пароль - минимум 3 символа!")
-        .max(20, "максимальная длина - 20 символов!"),
-});
-
-export const signInSchema = Yup.object({
-    userName: Yup.string()
-        .required("Поле обязательное!")
+        .min(3, "Имя пользователя - минимум 3 символа!")
         .max(20, "максимальная длина - 20 символов!"),
     password: Yup.string()
         .required("Поле обязательное!")
         .min(3, "Пароль - минимум 3 символа!")
-        .max(20, "максимальная длина - 20 символов!"),
+        .max(120, "максимальная длина - 120 символов!"),
+});
+
+export const signInSchema = Yup.object({
+    userName: Yup.string()
+        .required("Поле обязательное!"),
+        //.max(20, "максимальная длина - 20 символов!"),
+    password: Yup.string()
+        .required("Поле обязательное!")
+        //.min(3, "Пароль - минимум 3 символа!")
+        //.max(120, "максимальная длина - 120 символов!"),
 });
 
 export const signUpSchema = Yup.object({
     userName: Yup.string()
         .required("Поле обязательное!")
+        .min(3, "Имя пользователя - минимум 3 символа!")
         .max(20, "максимальная длина - 20 символов!"),
     password: Yup.string()
         .required("Поле обязательное!")
         .min(3, "Пароль - минимум 3 символа!")
-        .max(20, "максимальная длина - 20 символов!"),
+        .max(120, "максимальная длина - 120 символов!"),
     /* role: Yup.number()
         .required("Field required!")
         .typeError("Значение должно быть числом!")

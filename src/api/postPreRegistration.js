@@ -1,17 +1,18 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const PostPreRegistration = createAsyncThunk(
+export const postPreRegistration = createAsyncThunk(
     "preAuth/postAuth", 
-    async ({login, password}, thunkApi) => { // объект thunkApi содержит функцию rejectWithValue
+    async ({username, password}, thunkApi) => { // объект thunkApi содержит функцию rejectWithValue
 
-        const response = await fetch(`https://gateway.scan-interfax.ru/api/v1/account/login`, {
+        const response = await fetch(`http://212.109.223.138:8090/api/auth/register`, {
             method: 'POST',
+            mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                login: login,
+                username: username,
                 password: password
                 })
         });

@@ -10,6 +10,7 @@ const TheHeader = () => {
             <Link className={styles.textLink} to='/sign-in'>Вход</Link>
             <Link className={styles.textLink} to='/card'>Карточка</Link>
             <Link className={styles.textLink} to='/quiz'>Квиз</Link>
+            <Link className={styles.textLink} to='/websocket'>Чат</Link>
         </header>
     )
 };

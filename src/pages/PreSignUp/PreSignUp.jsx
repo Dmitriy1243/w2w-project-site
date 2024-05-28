@@ -7,18 +7,19 @@ import { preSignUpSchema } from "../../validatorSchemas/validationSchema";
 import { useSelector, useDispatch } from 'react-redux';
 import { selectPreLoginUser } from '../../redux/selectors/selectors';
 import { loginReducer } from '../../redux/slices/preAuthSlice';
+import { postPreRegistration } from '../../api/postPreRegistration';
 
 
 const defaultValues = {
-    phone: "",
-    email: "",
+    username: "",
+    password: "",
 };
 
 const SignUp = () => {
 
     const dispatch = useDispatch();
-    const PreloginUser = useSelector(selectPreLoginUser);
-    
+    const preloginUser = useSelector(selectPreLoginUser);
+
     const {
         register,
         handleSubmit,
@@ -29,33 +30,34 @@ const SignUp = () => {
 
 
     const handleRegistration = async (data) => {
-        dispatch(loginReducer(data))
+        dispatch(loginReducer(data));
+        dispatch(postPreRegistration(data));
     };
 
     return (
         <>
             <h1 className={styles.titleText}>Предрегистрация</h1>
             <form className={styles.form} onSubmit={handleSubmit(handleRegistration)}>
-                <h2 className={styles.lable}>Телефон</h2>
+                <h2 className={styles.lable}>Пользователь</h2>
                 <Field 
-                    register={{...register("phone")}}
+                    register={{...register("username")}}
                     autoComplete="off"
-                    placeholder="телефон..."
+                    placeholder="пользователь..."
                     className={styles.input}
                     />
-                {Boolean(errors.phone) && <p className={styles.error}>{errors.phone?.message}</p>}
-                <h2 className={styles.lable}>Почта</h2>
+                {Boolean(errors.username) && <p className={styles.error}>{errors.username?.message}</p>}
+                <h2 className={styles.lable}>Пароль</h2>
                 <Field 
-                    register={{...register("email")}}
+                    register={{...register("password")}}
                     autoComplete="off"
-                    placeholder="почта..."
+                    placeholder="пароль..."
                     className={styles.input}
                     />
-                {Boolean(errors.email) && <p className={styles.error}>{errors.email?.message}</p>}
+                {Boolean(errors.password) && <p className={styles.error}>{errors.password?.message}</p>}
                 <Button className={styles.button} name={'Предрегистрация'} type="submit"/>
             </form>
-            <h2>{`Phone: ${PreloginUser.phone}`}</h2>
-            <h2>{`Email: ${PreloginUser.email}`}</h2>
+            <h2>{`Username: ${preloginUser.username}`}</h2>
+            <h2>{`Password: ${preloginUser.password}`}</h2>
         </>
     )
 };
