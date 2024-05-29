@@ -6,10 +6,14 @@ export const postPreRegistration = createAsyncThunk(
 
         const response = await fetch(`http://212.109.223.138:8090/api/auth/register`, {
             method: 'POST',
-            mode: 'cors',
+            //mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                'Accept': 'application/json',
+
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Headers': 'origin, x-requested-with, content-type',
+                'Access-Control-Allow-Methods' :'PUT, GET, POST, DELETE, OPTIONS'
             },
             body: JSON.stringify({
                 username: username,
