@@ -15,7 +15,7 @@ import Chat from './pages/Chat/Chat';
 function App() {
 
     const paths = {
-        signUp: "sign-up",
+        signUp: "/sign-up",
         //signIn: "/sign-in",
         //home: "/",
         //card: "/card",
