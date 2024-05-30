@@ -1,3 +1,5 @@
+@media (min-width: 359px) and (max-width: 1235px) {
+
 * {
     box-sizing: border-box;
 }
@@ -6,4 +8,5 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
 }

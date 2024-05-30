@@ -1,1 +1,1 @@
-export const selectPreLoginUser = (state) => state.preAuthExtraReducer.loginUser;
+export const selectLoginUser = (state) => state.authExtraReducer.loginUser;

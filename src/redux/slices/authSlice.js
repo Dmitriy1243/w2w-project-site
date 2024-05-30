@@ -1,53 +1,45 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { postPreRegistration } from '../../api/postPreRegistration';
+import { PostRegistration } from '../../api/postRegistration';
 
 
 export const initialState = {
     loginUser: {
-        username: '',  
+        phone: '',
+        email: '',
         password: ''   
     }
-    /* accessToken: '',
-    expire: '',
-    isActivated: false,
-    loginField: '',
-    passwordField: '',
-    loginError: ' ',   
-    passwordError: ' ', 
-    validForm: false,
-    isActivatedBurgerMenu: false, */
 };
 
-export const preAuthSlice = createSlice({
-    name: "preAuth",
+export const authSlice = createSlice({
+    name: "auth",
     initialState,
     reducers: {   
     
         loginReducer: (state, action) => {
-            state.loginUser.username = action.payload.username;
+            state.loginUser.phone = action.payload.phone;
+            state.loginUser.email = action.payload.email;
             state.loginUser.password = action.payload.password;
         },
     },
 
     extraReducers: (builder) => {
         builder
-        .addCase(postPreRegistration.pending, (state) => {
+        .addCase(PostRegistration.pending, (state) => {
 
             state.status = "loading";
             state.error = null;
     });
 
         builder
-        .addCase(postPreRegistration.fulfilled, 
+        .addCase(PostRegistration.fulfilled, 
             (state, { payload }) => { 
-    
             /* state.accessToken = payload.accessToken;
             state.expire = payload.expire; */
             state.status = "idle";
     });
 
         builder
-        .addCase(postPreRegistration.rejected, 
+        .addCase(PostRegistration.rejected, 
             (state, { payload }) => {
 
             if (payload) state.error = payload.message; //В payload.message приходит из fetchBooks => return thunkApi.rejectWithValue({ message: "Неправильный логин или пароль" })
@@ -56,4 +48,4 @@ export const preAuthSlice = createSlice({
     }
 });
 
-export const { loginReducer } = preAuthSlice.actions;
+export const { loginReducer } = authSlice.actions;

@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const postPreRegistration = createAsyncThunk(
-    "preAuth/postAuth", 
-    async ({username, password}, thunkApi) => { // объект thunkApi содержит функцию rejectWithValue
+export const PostRegistration = createAsyncThunk(
+    "auth/postAuth", 
+    async ({username, password}, thunkApi) => { 
 
         const response = await fetch(`http://212.109.223.138:8090/api/auth/register`, {
             method: 'POST',
@@ -25,11 +25,11 @@ export const postPreRegistration = createAsyncThunk(
         
         if (response.status !== 200) {
         
-            return thunkApi.rejectWithValue({  //rejectWithValue проверяет и возвращает ошибку при не удачном запросе
-            message: "Неправильный " 
+            return thunkApi.rejectWithValue({
+            //message: "Неправильный " 
             });
         }
     
-        return data; // возврвщвет данные при успешном запросе
+        return data;
     }
 );
