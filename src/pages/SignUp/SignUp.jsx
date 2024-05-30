@@ -11,6 +11,8 @@ import { PostRegistration } from '../../api/postRegistration';
 import Logo from '../../components/Svg/LogoSvg'; 
 import { nameButtonRegistration } from '../../datas/datas';
 import { Link } from 'react-router-dom';
+import PersononalInfo from '../PersononalInfo/PersononalInfo';
+import { useState } from 'react';
 
 
 const defaultValues = {
@@ -20,6 +22,7 @@ const defaultValues = {
 };
 
 const SignUp = () => {
+    const [isActive, setIsActive] = useState(false)
 
     const dispatch = useDispatch();
     const loginUser = useSelector(selectLoginUser);
@@ -69,9 +72,9 @@ const SignUp = () => {
                     />
                 <div className={styles.wrapperMessage}>{Boolean(errors.password) && <p className={styles.error}>{errors.password?.message}</p>}</div>
                 <div className={styles.policyDoc}>
-                    <p className={styles.policyText}>
-                    Зарегистрировавшись, я принимаю условия <Link className={styles.link}>пользовательского соглашения</Link> и даю свое согласие на <Link className={styles.link}>обработку персональных данных</Link> в соответствии с <Link className={styles.link}>политикой обработки персональных данных.</Link>
-                    </p>
+                    {isActive ? <PersononalInfo/> : <p className={styles.policyText}>
+                    Зарегистрировавшись, я принимаю условия <Link to='/sign-up/user-agreements' className={styles.link}>пользовательского соглашения</Link> и даю свое согласие на <Link className={styles.link}>обработку персональных данных</Link> в соответствии с <Link to='/sing-up/policy-persononal-info' className={styles.link}>политикой обработки персональных данных.</Link>
+                    </p>}
                 </div>
                 <Button className={styles.button} name={nameButtonRegistration} type="submit"/>
             </form>

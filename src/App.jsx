@@ -9,6 +9,9 @@ import SignUp from './pages/SignUp/SignUp';
 import SignIn from './pages/SignIn/SignIn';
 import  Quiz from './pages/Quiz/Quiz';
 import Chat from './pages/Chat/Chat';
+import UserAgreements from './pages/UserAgreements/UserAgreements';
+import PolicyPersononalInfo from './pages/PolicyPersononalInfo/PolicyPersononalInfo';
+
 
 
 
@@ -17,6 +20,8 @@ function App() {
     const paths = {
         firstPage: "*",
         signUp: "/sign-up",
+        userAgreements:"/sign-up/user-agreements",
+        policyPersononalInfo: "/sing-up/policy-persononal-info"
         //signIn: "/sign-in",
         //home: "/",
         //card: "/card",
@@ -27,6 +32,8 @@ function App() {
     const routes = [
         {path: paths.firstPage, element: <Navigate to ="/sign-up" /> },
         { path: paths.signUp, element: <SignUp /> },
+        { path: paths.userAgreements, element: <UserAgreements /> },
+        { path: paths.policyPersononalInfo, element: <PolicyPersononalInfo /> },
         //{ path: paths.signIn, element: <SignIn /> },
         //{ path: paths.home, element: <Home /> },
         //{ path: paths.card, element: <Card /> },
