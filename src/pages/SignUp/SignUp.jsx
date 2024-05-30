@@ -10,9 +10,7 @@ import { loginReducer } from '../../redux/slices/authSlice';
 import { PostRegistration } from '../../api/postRegistration';
 import Logo from '../../components/Svg/LogoSvg'; 
 import { nameButtonRegistration } from '../../datas/datas';
-import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
 
 
 const defaultValues = {
@@ -25,9 +23,6 @@ const SignUp = () => {
 
     const dispatch = useDispatch();
     const loginUser = useSelector(selectLoginUser);
-    const firstPageLoad = () => {
-        return <Link to='/sign-up'></Link>
-    }
 
     const { register, handleSubmit, formState: { errors }, } = useForm({
         defaultValues, resolver: yupResolver(signUpSchema)
@@ -38,9 +33,6 @@ const SignUp = () => {
         //dispatch(PostRegistration(data));
     };
 
-    useEffect(() => {
-        firstPageLoad();
-    }, [])
 
     return (
         <>

@@ -1,5 +1,5 @@
 import styles from './app.module.scss';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link, Navigate } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import { store, persistor } from '../src/redux/store/store';
@@ -16,15 +16,17 @@ function App() {
 
     const paths = {
         signUp: "/sign-up",
+        main: "*",
         //signIn: "/sign-in",
         //home: "/",
         //card: "/card",
         //quiz: "/quiz",
         //chat: "/websocket"
     };
-
+//<Route path="*" element={<Navigate to ="/products" />}/>
     const routes = [
         { path: paths.signUp, element: <SignUp /> },
+        {path: paths.main, element: <Navigate to ="/sign-up" /> },
         //{ path: paths.signIn, element: <SignIn /> },
         //{ path: paths.home, element: <Home /> },
         //{ path: paths.card, element: <Card /> },
