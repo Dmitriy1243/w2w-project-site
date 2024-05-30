@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const PostRegistration = createAsyncThunk(
     "auth/postAuth", 
-    async ({username, password}, thunkApi) => { 
+    async ({phone, email, password}, thunkApi) => { 
 
         const response = await fetch(`http://212.109.223.138:8090/api/auth/register`, {
             method: 'POST',
@@ -16,7 +16,8 @@ export const PostRegistration = createAsyncThunk(
                 'Access-Control-Allow-Methods' :'PUT, GET, POST, DELETE, OPTIONS'
             },
             body: JSON.stringify({
-                username: username,
+                phone: phone,
+                email: email,
                 password: password
                 })
         });

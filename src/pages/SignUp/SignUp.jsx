@@ -34,7 +34,8 @@ const SignUp = () => {
 
     const handleRegistration = async (data) => {
         dispatch(loginReducer(data));
-        //dispatch(PostRegistration(data));
+        dispatch(PostRegistration(data));
+        console.log(data)
     };
 
     const openModal = () => {
