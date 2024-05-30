@@ -16,20 +16,20 @@ function App() {
 
     const paths = {
         signUp: "sign-up",
-        signIn: "/sign-in",
-        home: "/",
-        card: "/card",
-        quiz: "/quiz",
-        chat: "/websocket"
+        //signIn: "/sign-in",
+        //home: "/",
+        //card: "/card",
+        //quiz: "/quiz",
+        //chat: "/websocket"
     };
 
     const routes = [
         { path: paths.signUp, element: <SignUp /> },
-        { path: paths.signIn, element: <SignIn /> },
-        { path: paths.home, element: <Home /> },
-        { path: paths.card, element: <Card /> },
-        { path: paths.quiz, element: <Quiz /> },
-        { path: paths.chat, element: <Chat /> },
+        //{ path: paths.signIn, element: <SignIn /> },
+        //{ path: paths.home, element: <Home /> },
+        //{ path: paths.card, element: <Card /> },
+        //{ path: paths.quiz, element: <Quiz /> },
+        //{ path: paths.chat, element: <Chat /> },
     ];
 
     return (
