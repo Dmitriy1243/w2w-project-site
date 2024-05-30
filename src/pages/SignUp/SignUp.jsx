@@ -50,7 +50,7 @@ const SignUp = () => {
                     placeholder="+7 (999) 999-99-99"
                     className={styles.input}
                     />
-                {Boolean(errors.phone) && <p className={styles.error}>{errors.phone?.message}</p>}
+                <div className={styles.wrapperMessage}>{Boolean(errors.phone) && <p className={styles.error}>{errors.phone?.message}</p>}</div>
                 <h2 className={styles.lable}>Email</h2>
                 <Field 
                     register={{...register("email")}}
@@ -58,7 +58,7 @@ const SignUp = () => {
                     placeholder="exemple@mail.com"
                     className={styles.input}
                     />
-                {Boolean(errors.email) && <p className={styles.error}>{errors.email?.message}</p>}
+                <div className={styles.wrapperMessage}>{Boolean(errors.email) && <p className={styles.error}>{errors.email?.message}</p>}</div>
                 <h2 className={styles.lable}>Пароль</h2>
                 <Field 
                     register={{...register("password")}}
@@ -67,7 +67,7 @@ const SignUp = () => {
                     className={styles.input}
                     type={'password'}
                     />
-                {Boolean(errors.password) && <p className={styles.error}>{errors.password?.message}</p>}
+                <div className={styles.wrapperMessage}>{Boolean(errors.password) && <p className={styles.error}>{errors.password?.message}</p>}</div>
                 <div className={styles.policyDoc}>
                     <p className={styles.policyText}>
                     Зарегистрировавшись, я принимаю условия <Link className={styles.link}>пользовательского соглашения</Link> и даю свое согласие на <Link className={styles.link}>обработку персональных данных</Link> в соответствии с <Link className={styles.link}>политикой обработки персональных данных.</Link>
