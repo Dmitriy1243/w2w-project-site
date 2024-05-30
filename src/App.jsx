@@ -1,5 +1,5 @@
 import styles from './app.module.scss';
-import { Routes, Route, Link, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import { store, persistor } from '../src/redux/store/store';
@@ -15,8 +15,8 @@ import Chat from './pages/Chat/Chat';
 function App() {
 
     const paths = {
+        firstPage: "*",
         signUp: "/sign-up",
-        main: "*",
         //signIn: "/sign-in",
         //home: "/",
         //card: "/card",
@@ -25,8 +25,8 @@ function App() {
     };
 //<Route path="*" element={<Navigate to ="/products" />}/>
     const routes = [
+        {path: paths.firstPage, element: <Navigate to ="/sign-up" /> },
         { path: paths.signUp, element: <SignUp /> },
-        {path: paths.main, element: <Navigate to ="/sign-up" /> },
         //{ path: paths.signIn, element: <SignIn /> },
         //{ path: paths.home, element: <Home /> },
         //{ path: paths.card, element: <Card /> },
