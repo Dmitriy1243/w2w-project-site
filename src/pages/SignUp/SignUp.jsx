@@ -5,8 +5,9 @@ import Field from '../../components/Field/Field';
 import { yupResolver } from "@hookform/resolvers/yup"; 
 import { signUpSchema } from "../../validatorSchemas/validationSchema";
 import { useSelector, useDispatch } from 'react-redux';
-import { selectLoginUser } from '../../redux/selectors/selectors';
+import { selectLoginUser, selectActiveModal } from '../../redux/selectors/selectors';
 import { loginReducer } from '../../redux/slices/authSlice';
+import { modalReducer } from '../../redux/slices/clickSlise';
 import { PostRegistration } from '../../api/postRegistration';
 import Logo from '../../components/Svg/LogoSvg'; 
 import { nameButtonRegistration } from '../../datas/datas';
@@ -22,10 +23,10 @@ const defaultValues = {
 };
 
 const SignUp = () => {
-    const [isActive, setIsActive] = useState(false)
 
     const dispatch = useDispatch();
     const loginUser = useSelector(selectLoginUser);
+    const isActive = useSelector(selectActiveModal);
 
     const { register, handleSubmit, formState: { errors }, } = useForm({
         defaultValues, resolver: yupResolver(signUpSchema)
@@ -34,6 +35,10 @@ const SignUp = () => {
     const handleRegistration = async (data) => {
         dispatch(loginReducer(data));
         //dispatch(PostRegistration(data));
+    };
+
+    const openModal = () => {
+        dispatch(modalReducer(true))
     };
 
 
@@ -73,7 +78,7 @@ const SignUp = () => {
                 <div className={styles.wrapperMessage}>{Boolean(errors.password) && <p className={styles.error}>{errors.password?.message}</p>}</div>
                 <div className={styles.policyDoc}>
                     {isActive ? <PersononalInfo/> : <p className={styles.policyText}>
-                    Зарегистрировавшись, я принимаю условия <Link to='/sign-up/user-agreements' className={styles.link}>пользовательского соглашения</Link> и даю свое согласие на <Link className={styles.link}>обработку персональных данных</Link> в соответствии с <Link to='/sing-up/policy-persononal-info' className={styles.link}>политикой обработки персональных данных.</Link>
+                    Зарегистрировавшись, я принимаю условия <Link to='/sign-up/user-agreements' className={styles.link}>пользовательского соглашения</Link> и даю свое согласие на <Link onClick={openModal} className={styles.link}>обработку персональных данных</Link> в соответствии с <Link to='/sing-up/policy-persononal-info' className={styles.link}>политикой обработки персональных данных.</Link>
                     </p>}
                 </div>
                 <Button className={styles.button} name={nameButtonRegistration} type="submit"/>

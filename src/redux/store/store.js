@@ -1,6 +1,7 @@
 import { configureStore, combineReducers  } from '@reduxjs/toolkit';
 import storage from 'redux-persist/lib/storage';
 import { authSlice } from '../slices/authSlice';
+import { clickSlice } from '../slices/clickSlise';
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 
 
@@ -13,6 +14,7 @@ const persistConfig = {
 const reducer = combineReducers({
     authExtraReducer: authSlice.reducer,
     loginReducer: authSlice.reducer,
+    modalReducer: clickSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);
