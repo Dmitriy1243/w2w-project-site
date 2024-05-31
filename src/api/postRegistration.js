@@ -14,7 +14,7 @@ export const PostRegistration = createAsyncThunk(
                 'Access-Control-Allow-Headers': 'origin, x-requested-with, content-type',
                 'Access-Control-Allow-Methods' :'PUT, GET, POST, DELETE, OPTIONS'
             },
-         /*    body: JSON.stringify({
+        /*    body: JSON.stringify({
                 phone: phone,
                 email: email,
                 password: password

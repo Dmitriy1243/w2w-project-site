@@ -13,6 +13,8 @@ import Logo from '../../components/Svg/LogoSvg';
 import { nameButtonRegistration } from '../../datas/datas';
 import { Link } from 'react-router-dom';
 import PersononalInfo from '../PersononalInfo/PersononalInfo';
+import { CSSTransition } from 'react-transition-group';
+import './signUp.css';
 
 
 const defaultValues = {
@@ -43,7 +45,13 @@ const SignUp = () => {
 //{isActive ? <PersononalInfo/> : 
     return (
         <>
-            {isActive && <div className={styles.opacityView}></div>}
+            <CSSTransition in={isActive} timeout={300} classNames='alert' unmountOnExit>
+                <div className={styles.blurView}>          
+                    <div className={styles.personalInfo}>
+                        <PersononalInfo/>
+                    </div>      
+                </div>
+            </CSSTransition>
             <div className={styles.logo}>
                 <Logo/>
             </div>
