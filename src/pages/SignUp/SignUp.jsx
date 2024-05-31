@@ -13,7 +13,6 @@ import Logo from '../../components/Svg/LogoSvg';
 import { nameButtonRegistration } from '../../datas/datas';
 import { Link } from 'react-router-dom';
 import PersononalInfo from '../PersononalInfo/PersononalInfo';
-import { useState } from 'react';
 
 
 const defaultValues = {
@@ -35,24 +34,22 @@ const SignUp = () => {
     const handleRegistration = async (data) => {
         dispatch(loginReducer(data));
         dispatch(PostRegistration(data));
-        console.log(data)
     };
 
     const openModal = () => {
         dispatch(modalReducer(true))
     };
 
-
+//{isActive ? <PersononalInfo/> : 
     return (
         <>
+            {isActive && <div className={styles.opacityView}></div>}
             <div className={styles.logo}>
                 <Logo/>
             </div>
-
             <div className={styles.titleWrapper}>
                 <h2 className={styles.titleText}>Регистрация</h2>
             </div>
-
             <form className={styles.form} onSubmit={handleSubmit(handleRegistration)}>
                 <h2 className={styles.lable}>Телефон</h2>
                 <Field 
@@ -80,13 +77,12 @@ const SignUp = () => {
                     />
                 <div className={styles.wrapperMessage}>{Boolean(errors.password) && <p className={styles.error}>{errors.password?.message}</p>}</div>
                 <div className={styles.policyDoc}>
-                    {isActive ? <PersononalInfo/> : <p className={styles.policyText}>
+                    <p className={styles.policyText}>
                     Зарегистрировавшись, я принимаю условия <Link to='/sign-up/user-agreements' className={styles.link}>пользовательского соглашения</Link> и даю свое согласие на <Link onClick={openModal} className={styles.link}>обработку персональных данных</Link> в соответствии с <Link to='/sing-up/policy-persononal-info' className={styles.link}>политикой обработки персональных данных.</Link>
-                    </p>}
+                    </p>
                 </div>
                 <Button className={styles.button} name={nameButtonRegistration} type="submit"/>
             </form>
-            
             <div className={styles.wrapperQuestinText}><h3 className={styles.questionText}>Уже есть профиль? <Link className={styles.link}>Войти</Link></h3>
             </div>
         </>
