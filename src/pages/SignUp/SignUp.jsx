@@ -42,7 +42,7 @@ const SignUp = () => {
         dispatch(modalReducer(true))
     };
 
-//{isActive ? <PersononalInfo/> : 
+
     return (
         <>
             <CSSTransition in={isActive} timeout={300} classNames='alert' unmountOnExit>
