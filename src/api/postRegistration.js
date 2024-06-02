@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const PostRegistration = createAsyncThunk(
     "auth/postAuth", 
-    async ({phone, email, password}, thunkApi) => { 
+    async ({phoneNumber, email, password}, thunkApi) => { 
 //https://dipdeepcode.ru/api/auth/create
 //https://212.109.223.138:8090/api/auth/register
         const response = await fetch(`https:///dipdeepcode.ru/api/auth/create`, {
@@ -16,7 +16,7 @@ export const PostRegistration = createAsyncThunk(
                 'Access-Control-Allow-Methods' :'PUT, GET, POST, DELETE, OPTIONS'
             },
         body: JSON.stringify({
-                phone: phone,
+            phoneNumber: phoneNumber,
                 email: email,
                 password: password
                 })

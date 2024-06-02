@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 
 export const signUpSchema = Yup.object({
-    phone: Yup
+    phoneNumber: Yup
         .string()
         .required("Поле обязательное!"),
     email: Yup

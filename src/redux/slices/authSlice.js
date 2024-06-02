@@ -4,7 +4,7 @@ import { PostRegistration } from '../../api/postRegistration';
 
 export const initialState = {
     loginUser: {
-        phone: '',
+        phoneNumber: '',
         email: '',
         password: ''   
     }
@@ -16,7 +16,7 @@ export const authSlice = createSlice({
     reducers: {   
     
         loginReducer: (state, action) => {
-            state.loginUser.phone = action.payload.phone;
+            state.loginUser.phoneNumber = action.payload.phoneNumber;
             state.loginUser.email = action.payload.email;
             state.loginUser.password = action.payload.password;
         },

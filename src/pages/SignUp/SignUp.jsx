@@ -18,7 +18,7 @@ import './signUp.css';
 
 
 const defaultValues = {
-    phone: "",
+    phoneNumber: "",
     email: "",
     password: "",
 };
@@ -61,13 +61,13 @@ const SignUp = () => {
             <form className={styles.form} onSubmit={handleSubmit(handleRegistration)}>
                 <h2 className={styles.lable}>Телефон</h2>
                 <Field 
-                    register={{...register("phone")}}
+                    register={{...register("phoneNumber")}}
                     autoComplete="off"
                     placeholder="+7 (999) 999-99-99"
                     className={styles.input}
                     type={'text'}
                     />
-                <div className={styles.wrapperMessage}>{Boolean(errors.phone) && <p className={styles.error}>{errors.phone?.message}</p>}</div>
+                <div className={styles.wrapperMessage}>{Boolean(errors.phoneNumber) && <p className={styles.error}>{errors.phoneNumber?.message}</p>}</div>
                 <h2 className={styles.lable}>Email</h2>
                 <Field 
                     register={{...register("email")}}
