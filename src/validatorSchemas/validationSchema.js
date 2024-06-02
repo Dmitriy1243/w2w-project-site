@@ -2,10 +2,8 @@ import * as Yup from "yup";
 
 export const signUpSchema = Yup.object({
     phone: Yup
-        .number()
-        .required("Поле обязательное!")
-        .integer("Число должно быть целым")
-        .typeError('Поле должно быть числом'),
+        .string()
+        .required("Поле обязательное!"),
     email: Yup
         .string()
         .email("В поле должен быть email!")

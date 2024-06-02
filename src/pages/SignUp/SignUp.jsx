@@ -65,6 +65,7 @@ const SignUp = () => {
                     autoComplete="off"
                     placeholder="+7 (999) 999-99-99"
                     className={styles.input}
+                    type={'text'}
                     />
                 <div className={styles.wrapperMessage}>{Boolean(errors.phone) && <p className={styles.error}>{errors.phone?.message}</p>}</div>
                 <h2 className={styles.lable}>Email</h2>
@@ -73,6 +74,7 @@ const SignUp = () => {
                     autoComplete="off"
                     placeholder="exemple@mail.com"
                     className={styles.input}
+                    type={'text'}
                     />
                 <div className={styles.wrapperMessage}>{Boolean(errors.email) && <p className={styles.error}>{errors.email?.message}</p>}</div>
                 <h2 className={styles.lable}>Пароль</h2>
