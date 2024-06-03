@@ -4,7 +4,7 @@ import Modal from '@mui/material/Modal';
 import Cross from '../Svg/Cross';
 import styles from './modal.module.scss';
 import { useDispatch } from 'react-redux';
-import { modalReducer } from '../../redux/slices/informationSlice';
+import { modalPersonalDatalReducer } from '../../redux/slices/informationSlice';
 
 
 const box = {
@@ -30,7 +30,7 @@ export default function ModalPersonalDataDocument({ open }) {
     const dispatch = useDispatch();
 
     const closeModal = () => {
-        dispatch(modalReducer(false));
+        dispatch(modalPersonalDatalReducer(false));
     };
 
     return (

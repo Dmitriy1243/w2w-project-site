@@ -9,8 +9,8 @@ import SignUpCreate from './pages/SignUpCreate/SignUpCreate';
 import SignIn from './pages/SignIn/SignIn';
 import  Quiz from './pages/Quiz/Quiz';
 import Chat from './pages/Chat/Chat';
-import UserAgreements from './pages/UserAgreements/UserAgreements';
-import PolicyProcessingPersonalDataDocument from './pages/PolicyProcessingPersonalDataDocument/PolicyProcessingPersonalDataDocument';
+import UserAgreements from './components/UserAgreements/UserAgreements';
+import PolicyProcessingPersonalDataDocument from './components/PolicyProcessingPersonalDataDocument/PolicyProcessingPersonalDataDocument';
 import BasicModal from './components/ModalPersonalDataDocument/ModalPersonalDataDocument';
 
 
@@ -21,8 +21,6 @@ function App() {
     const paths = {
         firstPage: "*",
         signUpCreate: "/signUpCreate",
-        //userAgreements:"/user-agreements",
-        //policyProcessingPersonalDataDocument: "/policy-persononal-info",
         //signIn: "/signIn",
         //home: "/",
         //card: "/card",
@@ -33,8 +31,6 @@ function App() {
     const routes = [
         {path: paths.firstPage, element: <Navigate to ="/signUpCreate" /> },
         { path: paths.signUpCreate, element: <SignUpCreate /> },
-        //{ path: paths.userAgreements, element: <UserAgreements /> },
-        //{ path: paths.policyProcessingPersonalDataDocument, element: <PolicyProcessingPersonalDataDocument /> },
         //{ path: paths.signIn, element: <SignIn /> },
         //{ path: paths.home, element: <Home /> },
         //{ path: paths.card, element: <Card /> },

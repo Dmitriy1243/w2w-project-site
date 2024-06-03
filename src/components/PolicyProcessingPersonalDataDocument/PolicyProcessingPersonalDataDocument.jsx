@@ -1,6 +1,9 @@
+import styles from './policyPersonalData.module.scss'
+
+
 const PolicyProcessingPersonalDataDocument = () => {
     return (
-        <h1>PolicyProcessingPersonalDataDocument</h1>
+        <div className={styles.container}></div>
     )
 };
 
