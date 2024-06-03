@@ -1,10 +1,10 @@
-import styles from './personalInfo.module.scss';
+import styles from './processingPersonalDataDocument.module.scss';
 import { useDispatch } from 'react-redux';
-import { modalReducer } from '../../redux/slices/clickSlise';
+import { modalReducer } from '../../redux/slices/informationSlice';
 import Cross from '../../components/Svg/Cross';
 
 
-const PersononalInfo = () => {
+const ProcessingPersonalDataDocument = () => {
     const dispatch = useDispatch();
 
     const closeModal = () => {
@@ -19,4 +19,4 @@ const PersononalInfo = () => {
     )
 };
 
-export default PersononalInfo;
+export default ProcessingPersonalDataDocument;

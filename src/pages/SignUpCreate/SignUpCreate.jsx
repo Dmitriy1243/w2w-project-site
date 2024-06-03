@@ -1,20 +1,19 @@
 import { useForm } from 'react-hook-form';
 import Button from '../../components/Button/Button';
-import styles from './signUp.module.scss';
+import styles from './signUpCreate.module.scss';
 import Field from '../../components/Field/Field';
 import { yupResolver } from "@hookform/resolvers/yup"; 
-import { signUpSchema } from "../../validatorSchemas/validationSchema";
+import { signUpCreateSchema } from "../../validatorSchemas/validationSchema";
 import { useSelector, useDispatch } from 'react-redux';
-import { selectLoginUser, selectActiveModal } from '../../redux/selectors/selectors';
-import { loginReducer } from '../../redux/slices/authSlice';
-import { modalReducer } from '../../redux/slices/clickSlise';
-import { PostRegistration } from '../../api/postRegistration';
+import { selectActiveModal } from '../../redux/selectors/selectors';
+import { modalReducer } from '../../redux/slices/informationSlice';
+import { PostAuthCreate } from '../../api/postAuthCreate';
 import Logo from '../../components/Svg/LogoSvg'; 
 import { nameButtonRegistration } from '../../datas/datas';
 import { Link } from 'react-router-dom';
-import PersononalInfo from '../PersononalInfo/PersononalInfo';
+import ProcessingPersonalDataDocument from '../ProcessingPersonalDataDocument/ProcessingPersonalDataDocument';
 import { CSSTransition } from 'react-transition-group';
-import './signUp.css';
+import './signUpCreate.css';
 
 
 const defaultValues = {
@@ -23,19 +22,17 @@ const defaultValues = {
     password: "",
 };
 
-const SignUp = () => {
+const SignUpCreate = () => {
 
     const dispatch = useDispatch();
-    const loginUser = useSelector(selectLoginUser);
-    const isActive = useSelector(selectActiveModal);
+    const isActiveModal = useSelector(selectActiveModal);
 
     const { register, handleSubmit, formState: { errors }, } = useForm({
-        defaultValues, resolver: yupResolver(signUpSchema)
+        defaultValues, resolver: yupResolver(signUpCreateSchema)
     });
 
     const handleRegistration = async (data) => {
-        dispatch(loginReducer(data));
-        dispatch(PostRegistration(data));
+        dispatch(PostAuthCreate(data));
     };
 
     const openModal = () => {
@@ -45,10 +42,10 @@ const SignUp = () => {
 
     return (
         <>
-            <CSSTransition in={isActive} timeout={300} classNames='alert' unmountOnExit>
+            <CSSTransition in={isActiveModal} timeout={300} classNames='alert' unmountOnExit>
                 <div className={styles.blurView}>          
-                    <div className={styles.personalInfo}>
-                        <PersononalInfo/>
+                    <div className={styles.personalData}>
+                        <ProcessingPersonalDataDocument />
                     </div>      
                 </div>
             </CSSTransition>
@@ -88,7 +85,7 @@ const SignUp = () => {
                 <div className={styles.wrapperMessage}>{Boolean(errors.password) && <p className={styles.error}>{errors.password?.message}</p>}</div>
                 <div className={styles.policyDoc}>
                     <p className={styles.policyText}>
-                    Зарегистрировавшись, я принимаю условия <Link to='/sign-up/user-agreements' className={styles.link}>пользовательского соглашения</Link> и даю свое согласие на <Link onClick={openModal} className={styles.link}>обработку персональных данных</Link> в соответствии с <Link to='/sing-up/policy-persononal-info' className={styles.link}>политикой обработки персональных данных.</Link>
+                    Зарегистрировавшись, я принимаю условия <Link to='/user-agreements' className={styles.link}>пользовательского соглашения</Link> и даю свое согласие на <Link onClick={openModal} className={styles.link}>обработку персональных данных</Link> в соответствии с <Link to='/policy-persononal-info' className={styles.link}>политикой обработки персональных данных.</Link>
                     </p>
                 </div>
                 <Button className={styles.button} name={nameButtonRegistration} type="submit"/>
@@ -99,4 +96,4 @@ const SignUp = () => {
     )
 };
 
-export default SignUp;
+export default SignUpCreate;

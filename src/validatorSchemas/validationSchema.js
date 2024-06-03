@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 
-export const signUpSchema = Yup.object({
+export const signUpCreateSchema = Yup.object({
     phoneNumber: Yup
         .string()
         .required("Поле обязательное!"),

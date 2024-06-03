@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-export const PostRegistration = createAsyncThunk(
-    "auth/postAuth", 
+export const PostAuthCreate = createAsyncThunk(
+    "authCreate/postAuthCreate", 
     async ({phoneNumber, email, password}, thunkApi) => { 
-//https://dipdeepcode.ru/api/auth/create
+
 //https://212.109.223.138:8090/api/auth/register
         const response = await fetch(`https:///dipdeepcode.ru/api/auth/create`, {
             method: 'POST',

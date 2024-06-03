@@ -4,7 +4,7 @@ export const initialState = {
     isActivModal: false,
 };
 
-export const clickSlice = createSlice({
+export const informationSlice = createSlice({
     name: "click",
     initialState,
     reducers: {   
@@ -15,4 +15,4 @@ export const clickSlice = createSlice({
     },
 });
 
-export const { modalReducer } = clickSlice.actions;
+export const { modalReducer } = informationSlice.actions;
