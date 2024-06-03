@@ -5,9 +5,9 @@ import Field from '../../components/Field/Field';
 import { yupResolver } from "@hookform/resolvers/yup"; 
 import { signUpCreateSchema } from "../../validatorSchemas/validationSchema";
 import { useSelector, useDispatch } from 'react-redux';
-import { selectActiveModal } from '../../redux/selectors/selectors';
+import { selectActiveModal, selectStatusCreateUser } from '../../redux/selectors/selectors';
 import { modalReducer } from '../../redux/slices/informationSlice';
-import { PostAuthCreate } from '../../api/postAuthCreate';
+import { postAuthCreate } from '../../api/postAuthCreate';
 import Logo from '../../components/Svg/LogoSvg'; 
 import { nameButtonRegistration } from '../../datas/datas';
 import { Link } from 'react-router-dom';
@@ -26,13 +26,14 @@ const SignUpCreate = () => {
 
     const dispatch = useDispatch();
     const isActiveModal = useSelector(selectActiveModal);
+    const statusCreateUser = useSelector(selectStatusCreateUser);
 
     const { register, handleSubmit, formState: { errors }, } = useForm({
         defaultValues, resolver: yupResolver(signUpCreateSchema)
     });
 
     const handleRegistration = async (data) => {
-        dispatch(PostAuthCreate(data));
+        dispatch(postAuthCreate(data));
     };
 
     const openModal = () => {
