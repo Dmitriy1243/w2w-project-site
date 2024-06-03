@@ -1,9 +1,12 @@
 import * as Yup from "yup";
 
+const phoneRegExp = /(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){11}(\s*)?/;
+
 export const signUpCreateSchema = Yup.object({
     phoneNumber: Yup
         .string()
-        .required("Поле обязательное!"),
+        .required("Поле обязательное!")
+        .matches(phoneRegExp, 'Длина или формат телефона не правильный!'),
     email: Yup
         .string()
         .email("В поле должен быть email!")
