@@ -56,8 +56,7 @@ const SignUpCreate = () => {
         <>
             {openAgreements && <UserAgreements />}
             {openPolicyPersonalgData && <PolicyProcessingPersonalDataDocument />}
-            <BasicModalPersonalDataDocument open={isActiveModal} />
-            {<div>
+            <BasicModalPersonalDataDocument open={isActiveModal} /> 
             <div className={styles.logo}>
                 <Logo/>
             </div>
@@ -101,7 +100,6 @@ const SignUpCreate = () => {
             </form>
             <div className={styles.wrapperQuestinText}><h3 className={styles.questionText}>Уже есть профиль? <Link className={styles.link}>Войти</Link></h3>
             </div>
-            </div>}
         </>
     )
 };
