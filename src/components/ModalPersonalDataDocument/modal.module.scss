@@ -3,14 +3,6 @@
 
 @media (min-width: 359px) and (max-width: 1235px) {
 
-.wrapper {
-    display: flex;
-    justify-content: center;
-    width: 327px;
-    height: 146px;
-    border-radius: 16px;
-    border: 1px solid;
-
     .text {
         margin: 10px 0px 0px 0px;
         width: 264px;
@@ -20,11 +12,8 @@
     }
 
     .cross {
-        margin: 5px 0px 0px 15px;
         width: 15px;
-        font-family: $regular;
-        font-weight: $font-400;
-        font-size: 20px;
+        height: 15px;
+        margin-left: 10px;
     }
-}
 }

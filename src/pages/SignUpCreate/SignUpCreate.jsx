@@ -11,9 +11,7 @@ import { postAuthCreate } from '../../api/postAuthCreate';
 import Logo from '../../components/Svg/LogoSvg'; 
 import { nameButtonRegistration } from '../../datas/datas';
 import { Link } from 'react-router-dom';
-import ProcessingPersonalDataDocument from '../ProcessingPersonalDataDocument/ProcessingPersonalDataDocument';
-import { CSSTransition } from 'react-transition-group';
-import './signUpCreate.css';
+import BasicModalPersonalDataDocument from '../../components/ModalPersonalDataDocument/ModalPersonalDataDocument';
 
 
 const defaultValues = {
@@ -43,13 +41,7 @@ const SignUpCreate = () => {
 
     return (
         <>
-            <CSSTransition in={isActiveModal} timeout={300} classNames='alert' unmountOnExit>
-                <div className={styles.blurView}>          
-                    <div className={styles.personalData}>
-                        <ProcessingPersonalDataDocument />
-                    </div>      
-                </div>
-            </CSSTransition>
+            <BasicModalPersonalDataDocument open={isActiveModal} />
             <div className={styles.logo}>
                 <Logo/>
             </div>
