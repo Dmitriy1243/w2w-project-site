@@ -40,7 +40,7 @@ const SignUpCreate = () => {
 
     return (
         <>
-            <BasicModalPersonalDataDocument open={isActiveModal} />
+            {/* <BasicModalPersonalDataDocument open={isActiveModal} /> */}
             <div className={styles.logo}>
                 <Logo/>
             </div>
