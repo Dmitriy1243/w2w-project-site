@@ -9,7 +9,7 @@ import { selectActiveModal, selectStatusCreateUser } from '../../redux/selectors
 import { modalPersonalDatalReducer } from '../../redux/slices/informationSlice';
 import { postAuthCreate } from '../../api/postAuthCreate';
 import Logo from '../../components/Svg/LogoSvg'; 
-import { nameButtonRegistration } from '../../datas/datas';
+import { nameButtonSignIn } from '../../datas/datas';
 import { Link } from 'react-router-dom';
 import BasicModalPersonalDataDocument from '../../components/ModalPersonalDataDocument/ModalPersonalDataDocument';
 import { useNavigate } from "react-router-dom";
@@ -85,7 +85,7 @@ const SignUpCreate = () => {
                     Зарегистрировавшись, я принимаю условия <Link to="/signUp-create/user-agreements" className={styles.link}>пользовательского соглашения</Link> и даю свое согласие на <Link onClick={openModal} className={styles.link}>обработку персональных данных</Link> в соответствии с <Link to="/signUp-create/policy-personalData" className={styles.link}>политикой обработки персональных данных.</Link>
                     </p>
                 </div>
-                <Button className={styles.button} name={nameButtonRegistration} type="submit"/>
+                <Button className={styles.button} name={nameButtonSignIn} type="submit"/>
             </form>
             <div className={styles.wrapperQuestinText}><h3 className={styles.questionText}>Уже есть профиль? <Link className={styles.link}>Войти</Link></h3>
             </div>

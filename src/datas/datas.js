@@ -1,1 +1,1 @@
-export let nameButtonRegistration = 'Вход';
+export let nameButtonSignIn = 'Вход';
