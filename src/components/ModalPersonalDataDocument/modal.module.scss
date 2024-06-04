@@ -11,9 +11,16 @@
         font-size: 14px;
     }
 
+    .button {
+        border: none;
+        width: 15px;
+        height: 15px;
+        background-color: white;
+    }
+
     .cross {
         width: 15px;
         height: 15px;
-        margin-left: 10px;
+        margin-left: 5px;
     }
 }

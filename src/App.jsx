@@ -20,6 +20,7 @@ function App() {
     const navigate = useNavigate();
 
     useEffect(() => {
+        if(false)
         navigate('/signUp-Create');
     }, [])
 
@@ -36,7 +37,6 @@ function App() {
     };
 
     const routes = [
-        {path: paths.firstPage, element: <Navigate to ="/signUp-Create" /> },
         { path: paths.signUpCreate, element: <SignUpCreate /> },
         { path: paths.userAgreements, element: <UserAgreements /> },
         { path: paths.policyPersonalData, element: <PolicyProcessingPersonalDataDocument /> },
