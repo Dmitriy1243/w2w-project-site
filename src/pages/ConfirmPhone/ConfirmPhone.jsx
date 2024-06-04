@@ -4,10 +4,16 @@ import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
 import { nameButtonSignIn } from '../../datas/datas';
 import { useState } from 'react';
+import { selectStatusRegistrationUser } from '../../redux/selectors/selectors';
+import { postAuthRegistration } from '../../api/postAuthRegistration';
+import { useSelector, useDispatch } from 'react-redux';
 
 const ConfirmPhone = () => {
 
 const [otp, setOtp] = useState(new Array(4).fill(""));//console.log(otp.join(""))
+
+const dispatch = useDispatch();
+const statusRegistrationUser = useSelector(selectStatusRegistrationUser);
 
 const handleChange = (e, index) => {
 
@@ -20,6 +26,10 @@ const handleChange = (e, index) => {
     }
 };
 
+const handleRegistrationUser = () => {
+        dispatch(postAuthRegistration(otp.join("")));
+};
+//console.log(otp.join(""))
     return (
         <>
             <div className={styles.wrapperArrow}>
@@ -46,7 +56,7 @@ const handleChange = (e, index) => {
                     <Link className={styles.link}>Отправить код ещё раз</Link>
                     </div>
                 </div>
-                <Button className={styles.button} name={nameButtonSignIn}/>
+                <Button click={handleRegistrationUser} className={styles.button} name={nameButtonSignIn}/>
             </div>
         </>
     )

@@ -1,15 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { postAuthCreate } from '../../api/postAuthCreate';
+import { postAuthRegistration } from '../../api/postAuthRegistration';
 
 
 export const initialState = {
-    statusCreateUser: '',
+    statusRegistrationUser: '',
     status: null,
     error: null,
 };
 
-export const authCreateSlice = createSlice({
-    name: "authCreate",
+export const authRegistrationSlice = createSlice({
+    name: "authRegistration",
     initialState,
     reducers: {   
     
@@ -17,21 +17,21 @@ export const authCreateSlice = createSlice({
 
     extraReducers: (builder) => {
         builder
-        .addCase(postAuthCreate.pending, (state) => {
+        .addCase(postAuthRegistration.pending, (state) => {
             state.status = "loading";
             state.error = null;
     });
 
         builder
-        .addCase(postAuthCreate.fulfilled, 
+        .addCase(postAuthRegistration.fulfilled, 
             (state, action) => { 
             state.status = "resolved";
             state.error = null;
-            state.statusCreateUser = action.payload;
+            state.statusRegistrationUser = action.payload;
     });
 
         builder
-        .addCase(postAuthCreate.rejected, 
+        .addCase(postAuthRegistration.rejected, 
             (state, action) => {
             state.status = "rejected";
             state.error = action.payload;
@@ -39,4 +39,4 @@ export const authCreateSlice = createSlice({
     }
 });
 
-export const {} = authCreateSlice.actions;
+export const {} = authRegistrationSlice.actions;

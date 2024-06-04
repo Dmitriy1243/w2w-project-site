@@ -32,7 +32,7 @@ const SignUpCreate = () => {
         defaultValues, resolver: yupResolver(signUpCreateSchema)
     });
 
-    const handleRegistration = async (data) => {
+    const handleCreateUser = async (data) => {
         dispatch(postAuthCreate(data));
         if(statusCreateUser === 200) {
             navigate("/signUp-create/confirm-phone");
@@ -52,7 +52,7 @@ const SignUpCreate = () => {
             <div className={styles.titleWrapper}>
                 <h2 className={styles.titleText}>Регистрация</h2>
             </div>
-            <form className={styles.form} onSubmit={handleSubmit(handleRegistration)}>
+            <form className={styles.form} onSubmit={handleSubmit(handleCreateUser)}>
                 <h2 className={styles.lable}>Телефон</h2>
                 <Field 
                     register={{...register("phoneNumber")}}
