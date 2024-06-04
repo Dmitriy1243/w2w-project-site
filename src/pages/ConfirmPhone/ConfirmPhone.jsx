@@ -11,6 +11,9 @@ const ConfirmPhone = () => {
             <div className={styles.titleWrapper}>
                 <h2 className={styles.title}>Подтвердите номер телефона</h2>
             </div>
+            <div className={styles.descriptionWrapper}>
+                <h3 className={styles.description}>Введите 4 цифры кода, отправленного на ваш номер телефона ****2469.</h3>
+            </div>
         </>
     )
 };

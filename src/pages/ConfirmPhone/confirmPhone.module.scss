@@ -28,4 +28,16 @@
             font-size: 32px;
         }
     }
+
+    .descriptionWrapper {
+        width: 89.44vw;
+        height: 6.58vh;
+
+        .description {
+            margin: 0px;
+            font-weight: $font-400;
+            font-family: $regular;
+            font-size: 16px;
+        }
+    }
 }

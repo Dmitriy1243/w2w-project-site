@@ -21,7 +21,7 @@ function App() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(true)
+        if(false)
         navigate('/signUp-create');
     }, [])
 
