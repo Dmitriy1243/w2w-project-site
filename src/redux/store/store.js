@@ -15,8 +15,6 @@ const reducer = combineReducers({
     authCreateExtraReducer: authCreateSlice.reducer,
     statusCreateUserReducer: authCreateSlice.reducer,
     modalPersonalDatalReducer: informationSlice.reducer,
-    openUserAgreementsReducer: informationSlice.reducer,
-    openPolicyProcessingDataReducer: informationSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);

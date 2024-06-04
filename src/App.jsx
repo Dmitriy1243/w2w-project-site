@@ -9,18 +9,25 @@ import SignUpCreate from './pages/SignUpCreate/SignUpCreate';
 import SignIn from './pages/SignIn/SignIn';
 import  Quiz from './pages/Quiz/Quiz';
 import Chat from './pages/Chat/Chat';
-import UserAgreements from './components/UserAgreements/UserAgreements';
-import PolicyProcessingPersonalDataDocument from './components/PolicyProcessingPersonalDataDocument/PolicyProcessingPersonalDataDocument';
-import BasicModal from './components/ModalPersonalDataDocument/ModalPersonalDataDocument';
-
-
+import UserAgreements from './pages/UserAgreements/UserAgreements';
+import PolicyProcessingPersonalDataDocument from './pages/PolicyProcessingPersonalDataDocument/PolicyProcessingPersonalDataDocument';
+import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
 
 
 function App() {
 
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        navigate('/signUp-Create');
+    }, [])
+
     const paths = {
         firstPage: "*",
-        signUpCreate: "/signUpCreate",
+        signUpCreate: "/signUp-Create",
+        userAgreements: "/signUp-Create/user-agreements",
+        policyPersonalData: "signUp-Create/policy-personalData",
         //signIn: "/signIn",
         //home: "/",
         //card: "/card",
@@ -29,8 +36,10 @@ function App() {
     };
 
     const routes = [
-        {path: paths.firstPage, element: <Navigate to ="/signUpCreate" /> },
+        {path: paths.firstPage, element: <Navigate to ="/signUp-Create" /> },
         { path: paths.signUpCreate, element: <SignUpCreate /> },
+        { path: paths.userAgreements, element: <UserAgreements /> },
+        { path: paths.policyPersonalData, element: <PolicyProcessingPersonalDataDocument /> },
         //{ path: paths.signIn, element: <SignIn /> },
         //{ path: paths.home, element: <Home /> },
         //{ path: paths.card, element: <Card /> },
