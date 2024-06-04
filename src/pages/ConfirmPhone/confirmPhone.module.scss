@@ -6,7 +6,6 @@
         margin-top: 31PX;
         width: 89.44vw;
         height: 5.88vh;
-        border: 1px solid;
     
         .buttonArrow {
             padding: 0px;
@@ -24,7 +23,6 @@
     width: 89.44vw;
     height: 100%;
     margin-bottom: 30px;
-    border: 1px solid;
 
     .titleWrapper {
         width: 89.44vw;
@@ -50,6 +48,7 @@
     }
 
     .wrapperInput {
+        margin-top: 32px;
         display: flex;
         column-gap: 8px;
         width: 89.44vw;
@@ -65,12 +64,16 @@
         }
     }
 
+    .linkWrapper {
+        margin-top: 16px;
+        width: 88.29vw;
     .link {
         font-weight: $font-600;
         font-family: $regular;
         font-size: 16px;
         color: black;
     }
+}
 
     .button {
         width: 88.29vw;
