@@ -30,11 +30,9 @@ const handleChange = (e, index) => {
                     <div className={styles.titleWrapper}>
                         <h2 className={styles.title}>Подтвердите номер телефона</h2>
                     </div>
-
                     <div className={styles.descriptionWrapper}>
                         <h3 className={styles.description}>Введите 4 цифры кода, отправленного на ваш номер телефона ****2469.</h3>
                     </div>
-
                     <div className={styles.wrapperInput}>
                         {otp.map((data, i) => {
                             return <input key={i} className={styles.otpInput}
@@ -49,7 +47,6 @@ const handleChange = (e, index) => {
                     </div>
                 </div>
                 <Button className={styles.button} name={nameButtonSignIn}/>
-
             </div>
         </>
     )
