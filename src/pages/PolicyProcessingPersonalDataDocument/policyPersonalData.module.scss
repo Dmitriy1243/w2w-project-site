@@ -33,6 +33,11 @@
         margin: 5PX 0px 30px 0px;
         width: 89.44vw;
         height: 73.08vh;
-        border: 1px solid;
+
+        .paragraff {
+            font-weight: $font-400;
+            font-family: $regular;
+            font-size: 14px;
+        }
     }
     }
