@@ -11,6 +11,7 @@ import  Quiz from './pages/Quiz/Quiz';
 import Chat from './pages/Chat/Chat';
 import UserAgreements from './pages/UserAgreements/UserAgreements';
 import PolicyProcessingPersonalDataDocument from './pages/PolicyProcessingPersonalDataDocument/PolicyProcessingPersonalDataDocument';
+import ConfirmPhone from './pages/ConfirmPhone/ConfirmPhone';
 import { useNavigate } from "react-router-dom";
 import { useEffect } from 'react';
 
@@ -21,14 +22,15 @@ function App() {
 
     useEffect(() => {
         if(true)
-        navigate('/signUp-Create');
+        navigate('/signUp-create');
     }, [])
 
     const paths = {
         firstPage: "*",
-        signUpCreate: "/signUp-Create",
-        userAgreements: "/signUp-Create/user-agreements",
-        policyPersonalData: "signUp-Create/policy-personalData",
+        signUpCreate: "/signUp-create",
+        userAgreements: "/signUp-create/user-agreements",
+        policyPersonalData: "/signUp-create/policy-personalData",
+        confirmPhone: "/signUp-create/confirm-phone",
         //signIn: "/signIn",
         //home: "/",
         //card: "/card",
@@ -40,6 +42,7 @@ function App() {
         { path: paths.signUpCreate, element: <SignUpCreate /> },
         { path: paths.userAgreements, element: <UserAgreements /> },
         { path: paths.policyPersonalData, element: <PolicyProcessingPersonalDataDocument /> },
+        { path: paths.confirmPhone, element: <ConfirmPhone /> },
         //{ path: paths.signIn, element: <SignIn /> },
         //{ path: paths.home, element: <Home /> },
         //{ path: paths.card, element: <Card /> },

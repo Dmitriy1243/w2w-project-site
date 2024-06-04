@@ -7,7 +7,7 @@ const UserAgreements = () => {
     return (
         <>
             <div className={styles.wrapperArrow}>
-                <Link to='/signUp-Create'><ArrowBack className={styles.button}/></Link>
+                <Link to='/signUp-create'><ArrowBack className={styles.button}/></Link>
             </div>
             <div className={styles.titleWrapper}>
                 <h2 className={styles.title}>Договор возмездного оказания услуг (публичная оферта)</h2>

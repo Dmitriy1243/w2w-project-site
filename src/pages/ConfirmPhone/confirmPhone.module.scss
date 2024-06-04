@@ -1,0 +1,31 @@
+@import '../../scss/variables.scss';
+
+@media (min-width: 359px) and (max-width: 1235px) {
+
+    .wrapperArrow{
+        margin-top: 31PX;
+        width: 89.44vw;
+        height: 5.88vh;
+    
+        .button {
+            padding: 0px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            background-color: white;
+        }
+    }
+
+    .titleWrapper {
+        margin-top: 10PX;
+        width: 89.44vw;
+        height: 15.12vh;
+        
+        .title {
+            margin: 0px;
+            font-weight: $font-700;
+            font-family: $regular;
+            font-size: 32px;
+        }
+    }
+}

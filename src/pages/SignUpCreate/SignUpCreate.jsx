@@ -12,6 +12,7 @@ import Logo from '../../components/Svg/LogoSvg';
 import { nameButtonRegistration } from '../../datas/datas';
 import { Link } from 'react-router-dom';
 import BasicModalPersonalDataDocument from '../../components/ModalPersonalDataDocument/ModalPersonalDataDocument';
+import { useNavigate } from "react-router-dom";
 
 
 const defaultValues = {
@@ -22,6 +23,7 @@ const defaultValues = {
 
 const SignUpCreate = () => {
 
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const isActiveModal = useSelector(selectActiveModal);
     const statusCreateUser = useSelector(selectStatusCreateUser);
@@ -32,10 +34,13 @@ const SignUpCreate = () => {
 
     const handleRegistration = async (data) => {
         dispatch(postAuthCreate(data));
+        if(statusCreateUser === 200) {
+            navigate("/signUp-create/confirm-phone");
+        }
     };
 
     const openModal = () => {
-        dispatch(modalPersonalDatalReducer(true))
+        dispatch(modalPersonalDatalReducer(true));
     };
 
     return (
@@ -77,7 +82,7 @@ const SignUpCreate = () => {
                 <div className={styles.wrapperMessage}>{Boolean(errors.password) && <p className={styles.error}>{errors.password?.message}</p>}</div>
                 <div className={styles.policyDoc}>
                     <p className={styles.policyText}>
-                    Зарегистрировавшись, я принимаю условия <Link to="/signUp-Create/user-agreements" className={styles.link}>пользовательского соглашения</Link> и даю свое согласие на <Link onClick={openModal} className={styles.link}>обработку персональных данных</Link> в соответствии с <Link to="/signUp-Create/policy-personalData" className={styles.link}>политикой обработки персональных данных.</Link>
+                    Зарегистрировавшись, я принимаю условия <Link to="/signUp-create/user-agreements" className={styles.link}>пользовательского соглашения</Link> и даю свое согласие на <Link onClick={openModal} className={styles.link}>обработку персональных данных</Link> в соответствии с <Link to="/signUp-create/policy-personalData" className={styles.link}>политикой обработки персональных данных.</Link>
                     </p>
                 </div>
                 <Button className={styles.button} name={nameButtonRegistration} type="submit"/>
