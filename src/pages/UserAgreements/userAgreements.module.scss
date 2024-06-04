@@ -1,11 +1,12 @@
+@import '../../scss/variables.scss';
+
 
 @media (min-width: 359px) and (max-width: 1235px) {
 
 .wrapperArrow{
     margin-top: 31PX;
-    width: 96.04vw;
+    width: 89.44vw;
     height: 5.88vh;
-    border: 1px solid;
 
     .button {
         padding: 0px;
@@ -18,15 +19,27 @@
 
 .titleWrapper {
     margin-top: 10PX;
-    width: 96.04vw;
+    width: 89.44vw;
     height: 15.12vh;
-    border: 1px solid;
+
+    .title {
+        margin: 0px;
+        font-weight: $font-700;
+        font-family: $regular;
+        font-size: 28px;
+    }
 }
 
 .textWrapper {
     margin: 5PX 0px 30px 0px;
-    width: 96.04vw;
-    height: 73.08vh;
-    border: 1px solid;
+    width: 89.44vw;
+    height: 100%;
+
+    .paragraff {
+        font-weight: $font-400;
+        font-family: $regular;
+        font-size: 14px;
+    }
+    }
 }
-}
+
