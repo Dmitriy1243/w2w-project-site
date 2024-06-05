@@ -1,2 +1,2 @@
-export let nameButtonSignIn = 'Вход';
-export let nameButtonSignUp = 'Зарегистрироваться'
+export let nameButtonEnter = 'Вход';
+export let nameButtonRegistration = 'Зарегистрироваться'

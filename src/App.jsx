@@ -26,12 +26,11 @@ function App() {
     }, [])
 
     const paths = {
-        firstPage: "*",
         signUpCreate: "/signUp-create",
         userAgreements: "/signUp-create/user-agreements",
         policyPersonalData: "/signUp-create/policy-personalData",
         confirmPhone: "/signUp-create/confirm-phone",
-        //signIn: "/signIn",
+        signIn: "/signIn",
         //home: "/",
         //card: "/card",
         //quiz: "/quiz",
@@ -43,7 +42,7 @@ function App() {
         { path: paths.userAgreements, element: <UserAgreements /> },
         { path: paths.policyPersonalData, element: <PolicyProcessingPersonalDataDocument /> },
         { path: paths.confirmPhone, element: <ConfirmPhone /> },
-        //{ path: paths.signIn, element: <SignIn /> },
+        { path: paths.signIn, element: <SignIn /> },
         //{ path: paths.home, element: <Home /> },
         //{ path: paths.card, element: <Card /> },
         //{ path: paths.quiz, element: <Quiz /> },

@@ -20,11 +20,9 @@ export const signUpCreateSchema = Yup.object({
 });
 
 export const signInSchema = Yup.object({
-    userName: Yup
+    phoneNumberOrEmail: Yup
         .string()
-        .required("Поле обязательное!")
-        .min(3, "Имя пользователя - минимум 3 символа!")
-        .max(20, "максимальная длина - 20 символов!"),
+        .required("Поле обязательное!"),
     password: Yup
         .string()
         .required("Поле обязательное!")

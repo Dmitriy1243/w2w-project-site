@@ -1,32 +1,101 @@
+@import '../../scss/variables.scss';
+
 @media (min-width: 359px) and (max-width: 1235px) {
 
-.form {
-    display: flex;
-    flex-direction: column;
-
-    .error {
-        color: red;
+    .logo{
+        margin-top: 36px;
     }
 
-    .lable {
-        font-weight: 700;
-        font-size: 18px;
+    .titleWrapper {
+        width: 88.29vw;
+    
+        .titleText {
+            margin: 25px 0px 0px 0px;
+            width: 88.29vw;
+            font-size: 28px;
+            font-weight: $font-700;
+            font-family: $bold;
+        }
     }
 
-    .input {
-        padding: 0px 0px 0px 10px;
-        width: 300px;
-        height: 30px;
-        border-radius: 10px;
+    .form {
+        display: flex;
+        flex-direction: column;
+        width: 88.29vw;
+    
+        .wrapperMessage {
+            display: flex;
+            justify-content:flex-start;
+            width: 88.29vw;
+            height: 16px;
+        }
+        .error {
+            margin: 0px;
+            color: $red-message;
+            font-weight: $font-400;
+            font-size: 14px;
+            font-family: $regular;
+        }
+    
+        .lable {
+            margin: 3px 0px 7px 0px;
+            font-weight: $font-400;
+            font-size: 14px;
+            font-family: $regular;
+        }
+    
+        .input {
+            padding: 0px 0px 0px 10px;
+            width: 88.29vw;
+            height: 6.49vh;
+            font-size: 16px;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        
+        .button {
+            margin: 240px 0px 0px 0px;
+            width: 88.29vw;
+            height: 6.49vh;
+            font-family: $regular;
+            font-weight: $font-600;
+            font-size: 16px;
+            border-radius: 6px;
+            background-color: black;
+            color: white;
+        }
     }
 
-    .button {
-        margin: 40px 0px 40px 0px;
-        width: 300px;
-        height: 30px;
-        border-radius: 10px;
-        background-color: black;
-        color: white;
+    .linkWrapper {
+        margin-top: 16px;
+        width: 88.29vw;
+
+    .link {
+        font-weight: $font-600;
+        font-family: $regular;
+        font-size: 16px;
+        color: black;
+    }
+}
+
+.wrapperQuestinText{
+    width: 88.29vw;
+    margin: 10px 0px 20px 0px;
+
+    .questionText {
+        margin: 0px;
+        color: black;
+        font-family: $regular;
+        font-weight: $font-400;
+        font-size: 16px;
+
+        .link {
+            color: black;
+            font-family: $regular;
+            font-weight: $font-600;
+            font-size: 16px;
+        }
     }
 }
 }

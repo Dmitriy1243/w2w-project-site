@@ -2,7 +2,7 @@ import styles from './confirmPhone.module.scss';
 import ArrowBack from '../../components/Svg/ArrowBack';
 import { Link } from 'react-router-dom';
 import Button from '../../components/Button/Button';
-import { nameButtonSignIn } from '../../datas/datas';
+import { nameButtonEnter } from '../../datas/datas';
 import { useState } from 'react';
 import { selectStatusRegistrationUser } from '../../redux/selectors/selectors';
 import { postAuthRegistration } from '../../api/postAuthRegistration';
@@ -46,7 +46,7 @@ const handleRegistrationUser = () => {
                     </div>
                     <div className={styles.wrapperInput}>
                         {otp.map((data, i) => {
-                            return <input key={i} className={styles.otpInput}//4598
+                            return <input key={i} className={styles.otpInput}
                             type='password' 
                             value={data}
                             maxLength={1}
@@ -54,10 +54,10 @@ const handleRegistrationUser = () => {
                             />})}
                     </div>
                     <div className={styles.linkWrapper}>        
-                    <Link className={styles.link}>Отправить код ещё раз</Link>
+                        <Link className={styles.link}>Отправить код ещё раз</Link>
                     </div>
                 </div>
-                <Button click={handleRegistrationUser} className={styles.button} name={nameButtonSignIn}/>
+                <Button click={handleRegistrationUser} className={styles.button} name={nameButtonEnter}/>
             </div>
         </>
     )

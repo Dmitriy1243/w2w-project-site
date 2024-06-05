@@ -4,10 +4,12 @@ import styles from './signIn.module.scss';
 import Field from '../../components/Field/Field';
 import { yupResolver } from "@hookform/resolvers/yup"; 
 import { signInSchema } from "../../validatorSchemas/validationSchema";
+import Logo from '../../components/Svg/LogoSvg';
+import { Link } from 'react-router-dom';
 
 
 const defaultValues = {
-    userName: "",
+    phoneNumberOrEmail: "",
     password: "",
 };
 
@@ -28,16 +30,23 @@ const SignIn = () => {
 
     return (
         <>
-            <h1 className={styles.titleText}>Вход</h1>
+            <div className={styles.logo}>
+                <Logo/>
+            </div>
+
+            
+            <div className={styles.titleWrapper}>
+                <h2 className={styles.titleText}>Вход</h2>
+            </div>
             <form className={styles.form} onSubmit={handleSubmit(handleSignIn)}>
-                <h2 className={styles.lable}>Пользователь</h2>
+                <h2 className={styles.lable}>Телефон/Email</h2>
                 <Field 
-                    register={{...register("userName")}}
+                    register={{...register("phoneNumberOrEmail")}}
                     autoComplete="off"
-                    placeholder="пользователь..."
+                    placeholder="телефон/email"
                     className={styles.input}
                     />
-                {Boolean(errors.userName) && <p className={styles.error}>{errors.userName?.message}</p>}
+                <div className={styles.wrapperMessage}>{Boolean(errors.phoneNumberOrEmail) && <p className={styles.error}>{errors.phoneNumberOrEmail?.message}</p>}</div>
                 <h2 className={styles.lable}>Пароль</h2>
                 <Field 
                     register={{...register("password")}}
@@ -45,9 +54,16 @@ const SignIn = () => {
                     placeholder="пароль..."
                     className={styles.input}
                     />
-                {Boolean(errors.password) && <p className={styles.error}>{errors.password?.message}</p>}
+                <div className={styles.wrapperMessage}>{Boolean(errors.password) && <p className={styles.error}>{errors.password?.message}</p>}</div>
+                <div className={styles.linkWrapper}>
+                    <Link className={styles.link}>Не помню пароль</Link>
+                </div>
                 <Button className={styles.button} name={'Вход'} type="submit"/>
             </form>
+
+            <div className={styles.wrapperQuestinText}>
+                <h3 className={styles.questionText}>Нет профиля? <Link to="/signUp-create" className={styles.link}>Зарегистрируйтесь</Link></h3>
+            </div>
         </>
     )
 };
