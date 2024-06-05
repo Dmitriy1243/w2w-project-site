@@ -15,8 +15,9 @@ const persistConfig = {
 const reducer = combineReducers({
     authCreateExtraReducer: authCreateSlice.reducer,
     statusCreateUserReducer: authCreateSlice.reducer,
+    statusLoadNullReducer: authCreateSlice.reducer,
     modalPersonalDatalReducer: informationSlice.reducer,
-    authRegistrationExtraReducer: authRegistrationSlice.reducer
+    authRegistrationExtraReducer: authRegistrationSlice.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducer);

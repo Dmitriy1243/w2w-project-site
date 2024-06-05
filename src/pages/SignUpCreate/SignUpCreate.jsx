@@ -5,7 +5,7 @@ import Field from '../../components/Field/Field';
 import { yupResolver } from "@hookform/resolvers/yup"; 
 import { signUpCreateSchema } from "../../validatorSchemas/validationSchema";
 import { useSelector, useDispatch } from 'react-redux';
-import { selectActiveModal, selectStatusCreateUser } from '../../redux/selectors/selectors';
+import { selectActiveModal, selectStatusCreateUser, selectStatusLoadCreate } from '../../redux/selectors/selectors';
 import { modalPersonalDatalReducer } from '../../redux/slices/informationSlice';
 import { postAuthCreate } from '../../api/postAuthCreate';
 import Logo from '../../components/Svg/LogoSvg'; 
@@ -13,6 +13,7 @@ import { nameButtonSignUp } from '../../datas/datas';
 import { Link } from 'react-router-dom';
 import BasicModalPersonalDataDocument from '../../components/ModalPersonalDataDocument/ModalPersonalDataDocument';
 import { useNavigate } from "react-router-dom";
+import { useEffect } from 'react';
 
 
 const defaultValues = {
@@ -27,6 +28,7 @@ const SignUpCreate = () => {
     const dispatch = useDispatch();
     const isActiveModal = useSelector(selectActiveModal);
     const statusCreateUser = useSelector(selectStatusCreateUser);
+    const statusLoadCreate = useSelector(selectStatusLoadCreate);
 
     const { register, handleSubmit, formState: { errors }, } = useForm({
         defaultValues, resolver: yupResolver(signUpCreateSchema)
@@ -34,10 +36,13 @@ const SignUpCreate = () => {
 
     const handleCreateUser = async (data) => {
         dispatch(postAuthCreate(data));
-        if(statusCreateUser === 200) {
+    };
+
+    useEffect(() => {
+        if(statusCreateUser === 200 && statusLoadCreate === 'resolved') {
             navigate("/signUp-create/confirm-phone");
         }
-    };
+        },[statusLoadCreate])
 
     const openModal = () => {
         dispatch(modalPersonalDatalReducer(true));

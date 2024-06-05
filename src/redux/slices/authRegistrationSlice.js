@@ -4,8 +4,8 @@ import { postAuthRegistration } from '../../api/postAuthRegistration';
 
 export const initialState = {
     statusRegistrationUser: '',
-    status: null,
-    error: null,
+    statusLoadRegister: null,
+    errorLoadRegister: null,
 };
 
 export const authRegistrationSlice = createSlice({
@@ -18,23 +18,23 @@ export const authRegistrationSlice = createSlice({
     extraReducers: (builder) => {
         builder
         .addCase(postAuthRegistration.pending, (state) => {
-            state.status = "loading";
-            state.error = null;
+            state.statusLoadRegister = "loading";
+            state.errorLoadRegister = null;
     });
 
         builder
         .addCase(postAuthRegistration.fulfilled, 
             (state, action) => { 
-            state.status = "resolved";
-            state.error = null;
+            state.statusLoadRegister = "resolved";
+            state.errorLoadRegister = null;
             state.statusRegistrationUser = action.payload;
     });
 
         builder
         .addCase(postAuthRegistration.rejected, 
             (state, action) => {
-            state.status = "rejected";
-            state.error = action.payload;
+                state.statusLoadRegister = "rejected";
+                state.errorLoadRegister = action.payload;
     })
     }
 });

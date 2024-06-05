@@ -8,6 +8,7 @@ try {
         const response = await fetch(`https://dipdeepcode.ru/api/auth/register?passcode=${verificationСode}`, {
             method: 'POST',
             headers: {
+                //'Content-Type': 'application/x-www-form-urlencoded',
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
                 'Access-Control-Allow-Origin': '*',

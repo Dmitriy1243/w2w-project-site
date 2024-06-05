@@ -4,39 +4,42 @@ import { postAuthCreate } from '../../api/postAuthCreate';
 
 export const initialState = {
     statusCreateUser: '',
-    status: null,
-    error: null,
+    statusLoadCreate: null,
+    errorLoadCreate: null,
 };
 
 export const authCreateSlice = createSlice({
     name: "authCreate",
     initialState,
     reducers: {   
-    
+
+        statusLoadNullReducer: (state, action) => {
+            state.statusLoadCreate = null;
+        },
     },
 
     extraReducers: (builder) => {
         builder
         .addCase(postAuthCreate.pending, (state) => {
-            state.status = "loading";
-            state.error = null;
+            state.statusLoadCreate = "loading";
+            state.errorLoadCreate = null;
     });
 
         builder
         .addCase(postAuthCreate.fulfilled, 
             (state, action) => { 
-            state.status = "resolved";
-            state.error = null;
+            state.statusLoadCreate = "resolved";
+            state.errorLoadCreate = null;
             state.statusCreateUser = action.payload;
     });
 
         builder
         .addCase(postAuthCreate.rejected, 
             (state, action) => {
-            state.status = "rejected";
-            state.error = action.payload;
+            state.statusLoadCreate = "rejected";
+            state.errorLoadCreate = action.payload;
     })
     }
 });
 
-export const {} = authCreateSlice.actions;
+export const { statusLoadNullReducer } = authCreateSlice.actions;

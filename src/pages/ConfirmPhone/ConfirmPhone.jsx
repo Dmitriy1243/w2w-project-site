@@ -7,10 +7,11 @@ import { useState } from 'react';
 import { selectStatusRegistrationUser } from '../../redux/selectors/selectors';
 import { postAuthRegistration } from '../../api/postAuthRegistration';
 import { useSelector, useDispatch } from 'react-redux';
+import { statusLoadNullReducer } from '../../redux/slices/authCreateSlice';
 
 const ConfirmPhone = () => {
 
-const [otp, setOtp] = useState(new Array(4).fill(""));//console.log(otp.join(""))
+const [otp, setOtp] = useState(new Array(4).fill(""));
 
 const dispatch = useDispatch();
 const statusRegistrationUser = useSelector(selectStatusRegistrationUser);
@@ -29,11 +30,11 @@ const handleChange = (e, index) => {
 const handleRegistrationUser = () => {
         dispatch(postAuthRegistration(otp.join("")));
 };
-//console.log(otp.join(""))
+
     return (
         <>
             <div className={styles.wrapperArrow}>
-                <Link to='/signUp-create'><ArrowBack className={styles.buttonArrow}/></Link>
+                <Link to='/signUp-create'><ArrowBack onClick={dispatch(statusLoadNullReducer())} className={styles.buttonArrow}/></Link>
             </div>
             <div className={styles.functionalArea}>
                 <div>
@@ -45,7 +46,7 @@ const handleRegistrationUser = () => {
                     </div>
                     <div className={styles.wrapperInput}>
                         {otp.map((data, i) => {
-                            return <input key={i} className={styles.otpInput}
+                            return <input key={i} className={styles.otpInput}//4598
                             type='password' 
                             value={data}
                             maxLength={1}
