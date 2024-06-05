@@ -42,7 +42,7 @@ const SignUpCreate = () => {
         if(statusCreateUser === 200 && statusLoadCreate === 'resolved') {
             navigate("/signUp-create/confirm-phone");
         }
-        },[statusLoadCreate])
+        }, [statusLoadCreate]);
 
     const openModal = () => {
         dispatch(modalPersonalDatalReducer(true));
